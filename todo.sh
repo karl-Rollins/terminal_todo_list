@@ -13,7 +13,7 @@ add() {
             exit 1
         else
             echo "$arg2 - $(date)" >> "tasks.txt"
-            echo -e "\e[32mTask "$arg2" succesfully added to List\e[0m"    
+            echo -e "\e[32mTask $arg2 succesfully added to List\e[0m"    
         fi
     fi
 }
