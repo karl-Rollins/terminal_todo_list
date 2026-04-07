@@ -12,7 +12,7 @@ add() {
             echo "Task $arg2 already exist amongst your list of tasks"
             exit 1
         else
-            echo "$arg2" >> "tasks.txt"
+            echo "$arg2 - $(date)" >> "tasks.txt"
             echo -e "\e[32mTask "$arg2" succesfully added to List\e[0m"    
         fi
     fi
