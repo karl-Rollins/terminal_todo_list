@@ -3,10 +3,13 @@
 arg1="$1"
 arg2="$2"
 
+if [[ -z "$arg1" ]] ; then
+ echo "Add a command to ./todo.sh before running(add, list, del, clear)."
+ exit 0
+fi
+
 add() {
-        #if [[ !-f "tasks.txt" ]]; then
-           # touch tasks.txt
-        #fi
+        
     if [[ "$arg1" == "add" ]]; then
         if grep -i "$arg2" "tasks.txt" ; then
             echo "Task $arg2 already exist amongst your list of tasks"
@@ -36,9 +39,6 @@ delete() {
                 exit 1
             fi
         fi
-        #read -p "Enter the number to the task you want to delete: " num
-        #sed -i "${num}d" tasks.txt
-        #echo "You removed  task "$num" from your list of tasks"
     fi
 }
 
