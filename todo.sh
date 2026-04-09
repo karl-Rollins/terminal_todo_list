@@ -3,9 +3,16 @@
 arg1="$1"
 arg2="$2"
 
+#if user doesnt pass in a command
 if [[ -z "$arg1" ]] ; then
  echo "Add a command to './todo.sh' before running(add, list, del, clear)."
  exit 0
+fi
+
+#If user enters command in wrong order
+commands=("add" "list" "del" "clear")
+if [[ "$arg1" -ne "$commands" ]]; then
+    echo "The first argument should be either add, list, del, clear"
 fi
 
 add() {
