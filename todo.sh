@@ -4,7 +4,7 @@ arg1="$1"
 arg2="$2"
 
 if [[ -z "$arg1" ]] ; then
- echo "Add a command to ./todo.sh before running(add, list, del, clear)."
+ echo "Add a command to './todo.sh' before running(add, list, del, clear)."
  exit 0
 fi
 
