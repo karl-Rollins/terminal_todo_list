@@ -11,7 +11,7 @@ fi
 
 #If user enters command in wrong order
 commands=("add" "list" "del" "clear")
-if [[ "$arg1" -ne "$commands" ]]; then
+if [[ "$arg1" -ne "${commands[@]}" ]]; then
     echo "The first argument should be either add, list, del, clear"
 fi
 
