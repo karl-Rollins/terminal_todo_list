@@ -11,9 +11,20 @@ fi
 
 #If user enters command in wrong order
 commands=("add" "list" "del" "clear")
-if [[ "$arg1" -ne "${commands[@]}" ]]; then
-    echo "The first argument should be either add, list, del, clear"
+found=false
+
+for cmds in "${commands[@]}"; do
+    if [[ "$arg1" == "$cmds" ]]; then
+        found=true
+        break
+    fi
+done
+
+if [[ "$found" = false ]]; then
+    echo "The fisrt argument should be either add, list, del, clear"
+    exit 1
 fi
+
 
 add() {
         
