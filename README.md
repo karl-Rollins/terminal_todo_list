@@ -26,6 +26,9 @@ Bash
 ![alt text](<Screenshot from 2026-04-08 17-05-23.png>)
 ![alt text](<Screenshot from 2026-04-08 17-06-41.png>)
 
+working code in Terminal
+![alt text](<Screenshot from 2026-04-09 10-41-02.png>)
+
 ## ⚙ Installation & Setup
 
 Open the folder todo_list in your IDE(eg vscode)
