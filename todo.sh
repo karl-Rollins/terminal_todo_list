@@ -3,19 +3,45 @@
 arg1="$1"
 arg2="$2"
 
+#if user doesnt pass in a command
+if [[ -z "$arg1" ]] ; then
+ echo "Add a command to './todo.sh' before running(add, list, del, clear)."
+ exit 0
+fi
+
+#If user enters command in wrong order
+commands=("add" "list" "del" "clear")
+found=false
+
+for cmds in "${commands[@]}"; do
+    if [[ "$arg1" == "$cmds" ]]; then
+        found=true
+        break
+    fi
+done
+
+if [[ "$found" = false ]]; then
+    echo "The fisrt argument should be either add, list, del, clear"
+    exit 1
+fi
+
+
 add() {
-        #if [[ !-f "tasks.txt" ]]; then
-           # touch tasks.txt
-        #fi
+        
     if [[ "$arg1" == "add" ]]; then
+         if [[ -z "$arg2" ]]; then
+                echo "Add a second argument before running eg ./quiz add 'Pray'."
+                exit 1
+            fi
+
         if grep -i "$arg2" "tasks.txt" ; then
             echo "Task $arg2 already exist amongst your list of tasks"
             exit 1
         else
-            echo "$arg2" >> "tasks.txt"
-            echo -e "\e[32mTask "$arg2" succesfully added to List\e[0m"    
+            echo "$arg2 - $(date)" >> "tasks.txt"
+            echo -e "\e[32mTask $arg2 succesfully added to List\e[0m"    
         fi
-    fi
+    fi   
 }
 
 list() {
@@ -36,9 +62,6 @@ delete() {
                 exit 1
             fi
         fi
-        #read -p "Enter the number to the task you want to delete: " num
-        #sed -i "${num}d" tasks.txt
-        #echo "You removed  task "$num" from your list of tasks"
     fi
 }
 
