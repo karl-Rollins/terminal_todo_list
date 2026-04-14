@@ -29,6 +29,11 @@ fi
 add() {
         
     if [[ "$arg1" == "add" ]]; then
+         if [[ -z "$arg2" ]]; then
+                echo "Add a second argument before running eg ./quiz add 'Pray'."
+                exit 1
+            fi
+
         if grep -i "$arg2" "tasks.txt" ; then
             echo "Task $arg2 already exist amongst your list of tasks"
             exit 1
@@ -36,7 +41,7 @@ add() {
             echo "$arg2 - $(date)" >> "tasks.txt"
             echo -e "\e[32mTask $arg2 succesfully added to List\e[0m"    
         fi
-    fi
+    fi   
 }
 
 list() {
